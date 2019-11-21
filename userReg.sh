@@ -5,6 +5,7 @@ echo  ********Welcome to UserRegistration*****
 userNamePattern="^[A-Z]+[a-z]{3,}$"
 EmailPattern="^[a-zA-Z0-9]([._+]{0,1}[a-zA-Z0-9])*[@]{1}[a-zA-Z]{1,}[.]{1}[a-zA-Z]{2,3}([.]{1}[a-zA-Z]{2}){0,1}$"
 mobileFormat="^[0-9]{2,3}[: :][0-9]{10}$"
+passwordPattern="^[a-zA-Z0-9]{8,}$"
 function validationOfFirstName()
 { 
 	echo "Please Enter the FirstName" 
@@ -31,7 +32,7 @@ function validationOfLastName()
    else
    	echo "invalid lasttname"
 		validionOfLastName
-   fi
+   fi 
 }
 function validationOfEmail()
 {
@@ -52,16 +53,30 @@ function mobileFormat()
    read mobileNo
    if [[ $mobileNo =~ $mobileFormat ]]
    then
-   echo "valid mobile Number"
+   	echo "valid mobile Number"
    else
-   echo "invalid mobile Number"
-    mobileFormat
+   	echo "invalid mobile Number"
+    	mobileFormat
    fi
 
 }
-validationOfFirstName
-validationOfLastName
-validationOfEmail
-mobileFormat
+function validationOfPassword()
+{
+	echo "please Enter the Password"
+   read password
+   if [[ $password =~ $passwordPattern ]]
+   then
+   	echo "valid password"
+   else
+   	echo "invalid password"
+       validationOfPassword
+   fi
+
+}
+#validationOfFirstName
+#validationOfLastName
+#validationOfEmail
+#mobileFormat
+validationOfPassword
 
 
