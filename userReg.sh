@@ -4,7 +4,7 @@ echo  ********Welcome to UserRegistration*****
  
 echo "Please Enter the FirstName" 
 read firstName
-firstNameRegex="^[A-Z]([A-Za-z]{3,})$"
+firstNameRegex="^[A-Z]+[a-z]{3,}$"
 if [[ $firstName =~ $firstNameRegex ]]
 then
 	echo "valid firstName"
