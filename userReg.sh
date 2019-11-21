@@ -10,9 +10,11 @@ function ValidionOfFirstName()
 	if [[ $firstName =~ $userNamePattern ]]
 	then
 		echo "valid firstName"
+		ValidionOfLastName
+
 	else
 		echo "invalid firstname"
-		validationOfLastName
+		validationOfFirstName
 	fi
 
 }
@@ -25,7 +27,7 @@ function validationOfLastName()
    echo "valid lastName"
    else
    echo "invalid lasttname"
-	ValidionOfFirstName
+	ValidionOfLastName
    fi
 }
 ValidionOfFirstName
