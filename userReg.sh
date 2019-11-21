@@ -3,14 +3,15 @@
 echo  ********Welcome to UserRegistration*****
 
 userNamePattern="^[A-Z]+[a-z]{3,}$"
-function ValidionOfFirstName()
+EmailPattern="^[a-zA-Z0-9]([._+]{0,1}[a-zA-Z0-9])*[@]{1}[a-zA-Z]{1,}[.]{1}[a-zA-Z]{2,3}([.]{1}[a-zA-Z]{2}){0,1}$"
+function validationOfFirstName()
 { 
 	echo "Please Enter the FirstName" 
 	read firstName
 	if [[ $firstName =~ $userNamePattern ]]
 	then
 		echo "valid firstName"
-		ValidionOfLastName
+		validationOfLastName
 
 	else
 		echo "invalid firstname"
@@ -25,14 +26,28 @@ function validationOfLastName()
    if [[ $lastName =~ $userNamePattern ]]
    then
    echo "valid lastName"
+	validationOfEmail
    else
    echo "invalid lasttname"
-	ValidionOfLastName
+	validionOfLastName
    fi
 }
-ValidionOfFirstName
-validationOfLastName
+function validationOfEmail()
+{
+	echo "please Enter the Email"
+	read email
+	if [[ $email =~ $EmailPattern ]]
+   then
+   echo "valid Email"
+   else
+   echo "invalid Email"
+   validationOfEmail
+   fi
 
+}
+#validationOfFirstName
+#validationOfLastName
+validationOfEmail
 
 
 
